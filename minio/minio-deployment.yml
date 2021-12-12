@@ -5,12 +5,15 @@ metadata:
   namespace: gitlab
 spec:
   replicas: 1
-  selector:
+  template:
     metadata:
       labels:
         name: minio
         app: minio
     spec:
+      selector:
+        matchLabels:
+          app: minio
       containers:
       - name: minio
         image: minio/minio:RELEASE.2016-08-21T02-44-47Z
